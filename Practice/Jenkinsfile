@@ -1,6 +1,11 @@
 pipeline {
     agent any
-    
+
+    environment {
+	GIT_REPO = "https://github.com/juli0806/se_project/"
+	MAVEN_HOME = tool name: 'Maven 3', type: 'maven'
+    }
+	
     stages {
         stage('Checkout') {
             steps {
@@ -9,12 +14,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'javac -encoding UTF-8 -d classes Practice/src/Book.java Practice/src/BookManager.java Practice/src/PerformanceTest.java'
+                bat 'javac Practice/src/Book.java Practice/src/BookManager.java Practice/src/PerformanceTest.java'
             }
         }
 	stage('PerformanceTest') {
 	    steps {
-	        bat 'java -cp classes Practice/src/PerformanceTest'
+	        bat 'java Practice/src/PerformanceTest'
 	    }
 	}
 
