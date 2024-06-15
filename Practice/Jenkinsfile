@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'javac -encoding UTF-8 -d classes Practice/src/Book.java Practice/src/BookManager.java Practice/src/PerformanceTest.java'
+                bat 'javac -encoding UTF-8 -d classes Practice/src/Book.java Practice/src/BookManager.java Practice\\src\\PerformanceTest.java'
             }
         }
 	stage('PerformanceTest') {
