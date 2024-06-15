@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     stages {
         stage('Checkout') {
             steps {
@@ -8,20 +9,21 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'javac -encoding UTF-8 -d classes Practice/src/**/*.java'
+                bat 'javac -encoding UTF-8 -d . Practice/src/Book.java Practice/src/BookManager.java Practice/src/PerformanceTest.java'
             }
         }
-		stage('Test') {
-		    steps {
-		        def classpath = "classes;lib/;C:\Users\이예지\eclipse\java-2024-03\eclipse\plugins\org.eclipse.equinox.launcher_1.6.700.v20240213-1244.jar"
-		        bat 'java -cp ${classpath} org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt'
-		    }
-		}
-
+        stage('PerformanceTest') {
+            steps {
+                dir('Practice/src') {
+                    bat 'java PerformanceTest > test_results.txt'
+                }
+            }
+        }
     }
+    
     post {
         always {
-            archiveArtifacts 'test_results.txt'
+            archiveArtifacts 'Practice/src/test_results.txt'
         }
         failure {
             echo 'Build or test failed'
@@ -29,5 +31,5 @@ pipeline {
         success {
             echo 'Build and test succeeded'
         }
-    } 
+    }
 }
