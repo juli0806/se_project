@@ -9,10 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'javac -encoding UTF-8 Practice/src/Book.java'
-		bat 'javac -encoding UTF-8 Practice/src/BookManager.java'
-		bat 'javac -encoding UTF-8 Practice/src/BookManagerTest.java'
-		bat 'javac -encoding UTF-8 Practice/src/PerformanceTest.java'
+                bat 'javac -encoding UTF-8 Practice/src/Book.java Practice/src/BookManager.java Practice/src/BookManagerTest.java Practice/src/PerformanceTest.java'
             }
         }
 	stage('PerformanceTest') {
