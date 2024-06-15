@@ -4,16 +4,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+            	// 소스코드 체크아웃
                 checkout scm
             }
         }
         stage('Build') {
             steps {
+            	// 소스코드 컴파일 후 classes 디렉터리에 저장
                 bat 'javac -encoding UTF-8 -d classes Practice/src/Book.java Practice/src/BookManager.java Practice/src/PerformanceTest.java'
             }
         }
 	stage('PerformanceTest') {
 	    steps {
+	    	// 성능 테스트 실핼 후 테스트 결과를 test_result.txt에 저장
 	        bat 'java -cp classes PerformanceTest > test_results.txt'
 	    }
 	}
@@ -22,12 +25,15 @@ pipeline {
     
     post {
         always {
+        	// 테스트 결과를 저장하기 위해 아카이브
             archiveArtifacts 'test_results.txt'
         }
         failure {
+        	// 테스트 실패시 알림
             echo 'Build or test failed'
         }
         success {
+        	// 테스트 성공시 알림
             echo 'Build and test succeeded'
         }
     }
