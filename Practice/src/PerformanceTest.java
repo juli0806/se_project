@@ -4,6 +4,7 @@ public class PerformanceTest {
 	
 	BookManager bookManager;
 	public static final int BOOKS_NUMBER = 10000; // 책 개수
+	
 	public PerformanceTest() {
 		bookManager = new BookManager();
 		
