@@ -29,5 +29,5 @@ pipeline {
         success {
             echo 'Build and test succeeded'
         }
-    }
+    } 
 }
