@@ -14,7 +14,7 @@ pipeline {
         }
 	stage('PerformanceTest') {
 	    steps {
-	        bat 'java -d classes Practice/src/PerformanceTest'
+	        bat 'java -cp classes Practice/PerformanceTest'
 	    }
 	}
 
