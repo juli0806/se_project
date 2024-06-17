@@ -239,12 +239,21 @@ Unrecognized option: -d
 C:\ProgramData\Jenkins.jenkins\workspace\Hongik\Practice\src>java PerformanceTest  1>..
 액세스가 거부되었습니다.
 ```
+ 4. 파이프라인 설정 에러
+![jenkins_pipeline_connot](https://github.com/juli0806/se_project/assets/76528783/73c36aa6-eb88-492e-ad01-487dbe45a25e)
 
+ 5. cannot found book 에러
+  ![jenkins_book_notfound](https://github.com/juli0806/se_project/assets/76528783/68b59674-8d53-4b88-a380-6e40e71c23e2)
 
 ### Git 에러 메시지
-```
+  1. commit message 미입력 에러 
+  ![git_commit_message](https://github.com/juli0806/se_project/assets/76528783/8774e3f1-f657-4d61-8a5b-ae40493440cd)
 
-```
+  2. push 과정 에러
+
+      ![git_push_error](https://github.com/juli0806/se_project/assets/76528783/4e131d41-fe9d-4efa-a4bf-6cd1f3ef2786)
+
+
 
 ## 프로젝트 저장소
 https://github.com/juli0806/se_project.git
